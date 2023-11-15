@@ -1,0 +1,11 @@
+<h1>商品一覧</h1>
+<% @products.each do |e| %>
+    <p>
+    商品：<%= e.name %>
+    価格：<%= e.price %>
+    <%= link_to '商品を削除する', product_path(e), data: {"turbo-method": :delete} %>
+    <%= link_to 'カートに入れる', cart_items_new_path(product_id: e.id) %>
+    </p>
+<% end %>
+<%= link_to '商品を追加する', new_product_path %><br>
+<%= link_to 'カートを見る', carts_show_path %>
